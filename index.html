@@ -14,12 +14,12 @@
         }
 
         body {
-            background-color: #121212;
+            background-color: #534B4B;
             color: white;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 100%;
             padding: 16px;
         }
 
@@ -31,59 +31,52 @@
         }
 
         .profile img {
-            width: 32px;
-            height: 32px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
         }
 
         .banner-ad {
             width: 100%;
-            border-radius: 8px;
             margin-bottom: 24px;
         }
 
-        h2 {
-            font-size: 20px;
-            margin-bottom: 16px;
-            color: #fff;
+        h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: #ffffff;
         }
 
-        .category-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .category-section img {
-            width: 100%;
-            border-radius: 8px;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-
+        .category-section,
         .new-releases,
         .recently-played {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 55px;
         }
 
-        .music-card {
-            text-align: center;
+        .category-grid,
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .category-grid img{
+            width: 100%;
+            aspect-ratio: 6 / 3;
+            object-fit: cover;
         }
 
         .music-card img {
             width: 100%;
             border-radius: 8px;
-            aspect-ratio: 1;
-            margin-bottom: 8px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
         }
 
         .music-card p {
-            font-size: 14px;
-            color: #fff;
+            font-size: 17px;
+            margin-top: 4px;
+            text-align: center;
         }
 
         .bottom-nav {
@@ -91,18 +84,18 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #242424;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            padding: 12px;
-            text-align: center;
+            background: #534B4B;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 0;
+            margin-bottom: -0.3%;
         }
 
         .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
         }
 
         .nav-item img {
@@ -124,66 +117,75 @@
 <body>
     <div class="container">
         <div class="profile">
-            <img src="img/profile.jpeg" alt="profile">
-            <h2>TRABEL</h2>
-            <img src="img/lonceng.png" alt="lonceng">
+            <a href="profil.html"><img src="img/profile.jpeg" alt="profile"></a>
+            <h1 style="color: #E7CE2F;">TRABEL</h1>
+            <img src="img/lonceng.png" alt="notification">
         </div>
-        <img src="img/trable_member.jpeg" alt="iklan" class="banner-ad">
+
+        <img src="img/trable_member.jpeg" alt="ad banner" class="banner-ad">
+
         <div class="category-section">
-            <h2>Jelajahi Kategori</h2>
-            <div>
-                <img src="img/pop_indo.jpeg" alt="pop">
-                <img src="img/k-pop.jpeg" alt="pop">
-                <img src="img/tiktok.jpeg" alt="pop">
+            <h1>Jelajahi Kategori</h1>
+            <div class="category-grid">
+                <img src="img/pop_indo.jpeg" alt="Pop Indonesia">
+                <img src="img/k-pop.jpeg" alt="K-Pop">
+                <img src="img/tiktok.jpeg" alt="TikTok">
             </div>
         </div>
+
         <div class="new-releases">
-            <h2>Rilis Baru</h2>
-            <div>
-                <img src="img/rilis_baru.jpeg" alt="rilis">
-                <p>SOS Deluxse </p>
-            </div>
-            <div>
-                <img src="img/rilis_baru-1.jpeg" alt="rilis">
-                <p>I’m Okay</p>
-            </div>
-            <div>
-                <img src="img/rilis_baru-3.jpeg" alt="rilis">
-                <p>From Fromis</p>
+            <h1>Rilis Baru</h1>
+            <div class="music-grid">
+                <div class="music-card">
+                    <img src="img/rilis_baru.jpeg" alt="SOS Deluxe">
+                    <p>SOS Deluxe</p>
+                </div>
+                <div class="music-card">
+                    <img src="img/rilis_baru-1.jpeg" alt="I’m Okay">
+                    <p>I’m Okay</p>
+                </div>
+                <div class="music-card">
+                    <img src="img/rilis_baru-3.jpeg" alt="From Fromis">
+                    <p>From Fromis</p>
+                </div>
             </div>
         </div>
+
         <div class="recently-played">
-            <h2>Baru Diputar</h2>
-            <div class="music-card">
-                <img src="img/baru_diputar.jpeg" alt="baru">
-                <p>Down</p>
-            </div>
-            <div class="music-card">
-                <img src="img/baru_diputar-1.jpeg" alt="baru">
-                <p>Forever</p>
-            </div>
-            <div class="music-card">
-                <img src="img/baru_diputar-2.jpeg" alt="rilis">
-                <p>Lonely</p>
+            <h1>Baru Diputar</h1>
+            <div class="music-grid">
+                <div class="music-card">
+                    <img src="img/baru_diputar.jpeg" alt="Down">
+                    <p>Down</p>
+                </div>
+                <div class="music-card">
+                    <img src="img/baru_diputar-1.jpeg" alt="Forever">
+                    <p>Forever</p>
+                </div>
+                <div class="music-card">
+                    <img src="img/baru_diputar-2.jpeg" alt="Lonely">
+                    <p>Lonely</p>
+                </div>
             </div>
         </div>
-        <div class="bottom-nav">
-            <div>
-                <img src="img/home.png" alt="home">
-                <p>Home</p>
-            </div>
-            <div>
-                <img src="img/cari.png" alt="cari">
-                <p>Cari</p>
-            </div>
-            <div>
-                <img src="img/koleksi.png" alt="koleksi">
-                <p>Koleksi</p>
-            </div>
-            <div>
-                <img src="img/donwload.png" alt="dl">
-                <p>Download</p>
-            </div>
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <img src="img/home.png" alt="Home">
+            <p>Home</p>
+        </div>
+        <div class="nav-item">
+            <img src="img/cari.png" alt="Search">
+            <p>Cari</p>
+        </div>
+        <div class="nav-item">
+            <img src="img/koleksi.png" alt="Collection">
+            <p>Koleksi</p>
+        </div>
+        <div class="nav-item">
+            <img src="img/donwload.png" alt="Download">
+            <p>Download</p>
         </div>
     </div>
 </body>

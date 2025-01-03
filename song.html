@@ -128,7 +128,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25rem;
+            gap: 19rem;
             margin-bottom: 10px;
         }
 
@@ -253,18 +253,22 @@
             <button class="lyrics-button">LIRIK</button>
         </div>
         <div class="bottom-nav">
-            <a href="index.html" style="text-decoration: none;"><div class="nav-item">
-                <img src="img/home.png" alt="home">
-                <p>Home</p>
-            </div></a>
+            <a href="index.html" style="text-decoration: none;">
+                <div class="nav-item">
+                    <img src="img/home.png" alt="home">
+                    <p>Home</p>
+                </div>
+            </a>
             <div class="nav-item">
                 <img src="img/cari.png" alt="cari">
                 <p>Cari</p>
             </div>
-            <a href="koleksi.html" style="text-decoration: none;"><div class="nav-item">
-                <img src="img/koleksi.png" alt="Collection">
-                <p>Koleksi</p>
-            </div></a>
+            <a href="koleksi.html" style="text-decoration: none;">
+                <div class="nav-item">
+                    <img src="img/koleksi.png" alt="Collection">
+                    <p>Koleksi</p>
+                </div>
+            </a>
             <div class="nav-item">
                 <img src="img/donwload.png" alt="dl">
                 <p>Download</p>
@@ -273,17 +277,62 @@
     </div>
 
     <script>
-        let isSpinning = false;
+        let isPlaying = false;
+        let timeInterval;
+        let currentTime = 0;
+        const totalDuration = 180; // 3 minutes in seconds
 
         function toggleSpin() {
             const piringan = document.getElementById('piringan');
-            if (isSpinning) {
+            const timeSlider = document.querySelector('.time-slider::before');
+            const timestamp = document.querySelector('.timestamp');
+
+            if (isPlaying) {
                 piringan.classList.remove('spinning');
+                clearInterval(timeInterval);
             } else {
                 piringan.classList.add('spinning');
+                timeInterval = setInterval(() => {
+                    currentTime += 0.1;
+                    if (currentTime >= totalDuration) {
+                        clearInterval(timeInterval);
+                        piringan.classList.remove('spinning');
+                        isPlaying = false;
+                        currentTime = 0;
+                        updateUI();
+                        return;
+                    }
+                    updateUI();
+                }, 100);
             }
-            isSpinning = !isSpinning;
+            isPlaying = !isPlaying;
         }
+
+        function updateUI() {
+            const progress = (currentTime / totalDuration) * 100;
+            document.querySelector('.time-slider').style.setProperty('--progress', `${progress}%`);
+
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            document.querySelector('.timestamp').textContent =
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Add this CSS to your existing styles
+        const newStyles = `
+    .time-slider {
+        --progress: 30%;
+    }
+    
+    .time-slider::before {
+        width: var(--progress);
+        transition: width 0.1s linear;
+    }
+`;
+
+        const styleSheet = document.createElement("style");
+        styleSheet.textContent = newStyles;
+        document.head.appendChild(styleSheet);
     </script>
 </body>
 

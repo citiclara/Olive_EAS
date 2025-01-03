@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lagu-lagu</title>
+    <title>Koleksi</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
             margin: 0 auto;
             padding: 20px;
         }
-
         .profile {
             display: flex;
             justify-content: space-between;
@@ -99,36 +98,45 @@
             cursor: pointer;
         }
 
-        .lagu {
+        .song-list {
             display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            margin-bottom: 5px;
-            gap: 15px;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .lagu img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            gap: 12px;
+            border-radius: 8px;
+        }
+
+        .song-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
             object-fit: cover;
         }
 
-        /* Tambahkan container untuk teks */
-        .lagu-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+        .song-info {
+            flex: 1;
         }
 
-        .lagu p:first-of-type {
-            font-size: 16px;
-            font-weight: 500;
+        .song-title {
+            font-weight: bold;
+            margin-bottom: 4px;
         }
 
-        .lagu p:last-of-type {
+        .song-artist {
             font-size: 14px;
             color: #888;
+        }
+
+        .more-options {
+            padding: 8px;
+            color: #fff;
+            font-size: 40px;
         }
 
         .bottom-nav {
@@ -184,6 +192,7 @@
             <h1 style="color: #E7CE2F;">TRABEL</h1>
             <img src="img/lonceng.png" alt="notification">
         </div>
+
         <div class="tab-menu">
             <a href="koleksi.html" style="text-decoration: none;"><div class="tab-item">
                 <img src="img/music.png" alt="music">
@@ -193,60 +202,53 @@
                 <img src="img/download-1.png" alt="download">
                 <p>Playlist</p>
             </div>
-            <a href="artis.html" style="text-decoration: none;">
-                <div class="tab-item">
-                    <img src="img/artis.png" alt="artis">
-                    <p>Artis</p>
-                </div>
-            </a>
+            <a href="artis.html" style="text-decoration: none;"><div class="tab-item">
+                <img src="img/artis.png" alt="artis">
+                <p>Artis</p>
+            </div></a>
         </div>
+
         <div class="search-container">
             <input type="search" name="cari" placeholder="Cari di laguku">
             <img src="img/cari.png" alt="cari">
         </div>
+
         <button class="shuffle-button">ACAK</button>
-        <a href="song_2.html" style="text-decoration: none; color: #fff;"><div class="lagu">
-            <img src="img/songs-1.jpeg" alt="abba">
-            <div class="lagu-info">
-                <p>ABBA</p>
-                <p>4 Lagu</p>
-            </div>
-        </div></a>
-        <a href="song_1.html" style="text-decoration: none; color: #fff;"><div class="lagu">
-            <img src="img/songs-2.jpeg" alt="adele">
-            <div class="lagu-info">
-                <p>ADELE</p>
-                <p>3 Lagu</p>
-            </div>
-        </div></a>
-        <a href="song.html" style="text-decoration: none; color: #fff;"><div class="lagu">
-            <img src="img/songs-3.jpeg" alt="justin">
-            <div class="lagu-info">
-                <p>JUSTIN BIEBER</p>
-                <p>5 Lagu</p>
-            </div>
-        </div></a>
-        <a href="song_3.html" style="text-decoration: none; color: #fff;"><div class="lagu">
-            <img src="img/songs-4.png" alt="air supply">
-            <div class="lagu-info">
-                <p>AIR SUPPLY</p>
-                <p>6 Lagu</p>
-            </div>
-        </div></a>
-        <a href="song_4.html" style="text-decoration: none; color: #fff;"><div class="lagu" style="margin-bottom: 55px;">
-            <img src="img/songs-5.png" alt="mltr">
-            <div class="lagu-info">
-                <p>MICHAEL LEARNS TO ROCK</p>
-                <p>10 Lagu</p>
-            </div>
-        </div></a>
-        <div class="bottom-nav">
-            <a href="index.html" style="text-decoration: none;">
-                <div class="nav-item">
-                    <img src="img/home.png" alt="home">
-                    <p>Home</p>
+
+        <div class="song-list">
+            <a href="song_2.html" style="text-decoration: none; color: #fff;"><div class="song-item">
+                <img src="img/songs-1.jpeg" alt="abba">
+                <div class="song-info">
+                    <p class="song-title">MAMA MIA</p>
+                    <p class="song-artist">ABBA</p>
                 </div>
-            </a>
+                <span class="more-options">∙∙∙</span>
+            </div></a>
+
+            <a href="song_1.html" style="text-decoration: none; color: #fff;"><div class="song-item">
+                <img src="img/songs-2.jpeg" alt="adele">
+                <div class="song-info">
+                    <p class="song-title">ONLY ONE</p>
+                    <p class="song-artist">ADELE</p>
+                </div>
+                <span class="more-options">∙∙∙</span>
+            </div></a>
+
+            <a href="song.html" style="text-decoration: none; color: #fff;"><div class="song-item" style="margin-bottom: 55px;">
+                <img src="img/songs-3.jpeg" alt="justin">
+                <div class="song-info">
+                    <p class="song-title">NEVER SAY NEVER</p>
+                    <p class="song-artist">JUSTIN BIEBER</p>
+                </div>
+                <span class="more-options">∙∙∙</span>
+            </div></a>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="index.html" style="text-decoration: none;"><div class="nav-item">
+                <img src="img/home.png" alt="home">
+                <p>Home</p>
+            </div></a>
             <div class="nav-item">
                 <img src="img/cari.png" alt="cari">
                 <p>Cari</p>
